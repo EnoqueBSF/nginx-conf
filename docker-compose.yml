@@ -1,6 +1,10 @@
 version: '3'
 
 services:
+  nodejs:
+    external_links:
+      - nodejs
+
   webserver:
     image: nginx:latest
     container_name: webserver
@@ -14,8 +18,6 @@ services:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
       - dhparam:/etc/ssl/certs
-    external_links:
-      - nodejs
     depends_on:
       - nodejs
     networks:
