@@ -1,10 +1,6 @@
 version: '3'
 
 services:
-  nodejs:
-    external_links:
-      - nodejs
-
   webserver:
     image: nginx:latest
     container_name: webserver
@@ -51,5 +47,7 @@ volumes:
       o: bind
 
 networks:
+  external_links:
+    - nodejs
   app-network:
     driver: bridge  
