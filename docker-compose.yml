@@ -14,6 +14,8 @@ services:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
       - dhparam:/etc/ssl/certs
+    external_links:
+      - nodejs
     depends_on:
       - nodejs
     networks:
